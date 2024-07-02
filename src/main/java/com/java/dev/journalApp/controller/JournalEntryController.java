@@ -25,6 +25,8 @@ import com.java.dev.journalApp.entity.JournalEntry;
 public class JournalEntryController{
     private Map<Long,JournalEntry> journalEntries= new HashMap<>();
 
+    
+
 
     @GetMapping("/getall")
     public List<JournalEntry> getAll(){
