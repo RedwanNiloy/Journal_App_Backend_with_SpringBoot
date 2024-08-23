@@ -1,6 +1,7 @@
 package com.java.dev.journalApp.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -46,16 +47,17 @@ public class JournalEntryController2{
     }
 
     @GetMapping("/id/{myID}")
-    public JournalEntry getbyID(@PathVariable Long myID){
+    public Optional<JournalEntry> getbyID(@PathVariable String myID){
        
-        return null;
+        return js.getbyid(myID);
     }
 
 
     @DeleteMapping("/delete/id/{myID}")
-    public boolean deleteID(@PathVariable Long myID)
+    public String deleteID(@PathVariable String myID)
     {
-       return true;
+       js.deletebyid(myID);
+       return "deleted";
 
     }
 
