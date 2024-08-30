@@ -3,10 +3,13 @@ package com.java.dev.journalApp.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import lombok.Data;
 
 
 
 
+
+@Data //this annotation generate getter setters constructir etc in compile time
 @Document(collection="jounral_entries")
 public class JournalEntry{
 
@@ -15,7 +18,7 @@ public class JournalEntry{
     private String title;
     private String content;
 
-    public String getId() {
+   /*  public String getId() {
         return id;
     }
 
@@ -37,7 +40,7 @@ public class JournalEntry{
 
     public void setContent(String content) {
         this.content = content;
-    }
+    }*/
     
 
 

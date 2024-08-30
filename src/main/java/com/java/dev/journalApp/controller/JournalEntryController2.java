@@ -38,10 +38,12 @@ public class JournalEntryController2{
     }
 
 
-    @PostMapping("/createentry")
-    public String createEntry(@RequestBody JournalEntry myEntry){
+    @PostMapping("/createentry/email/{email}")
+    public String createEntry(@RequestBody JournalEntry myEntry,@PathVariable String email){
         
-       js.saveEntry(myEntry);
+       js.saveEntry(myEntry,email);
+
+       
        return "saved";
 
     }

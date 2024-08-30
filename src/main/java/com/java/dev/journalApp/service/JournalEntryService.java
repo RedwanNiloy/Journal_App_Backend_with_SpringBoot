@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.java.dev.journalApp.entity.JournalEntry;
+import com.java.dev.journalApp.entity.UserEntry;
 import com.java.dev.journalApp.repository.JournalEntryRepo;
+import com.java.dev.journalApp.repository.UserEntryRepo;
 
 
 
@@ -18,10 +20,35 @@ public class JournalEntryService{
 @Autowired
  private JournalEntryRepo journalreop;
 
+ @Autowired 
+ private UserEntryService js;
+
+ @Autowired
+ private UserEntryRepo repo;
+
+ 
+
   
- public void saveEntry(JournalEntry entry)
+ public void saveEntry(JournalEntry entry, String email)
 {
-     journalreop.save(entry);
+     JournalEntry saved =journalreop.save(entry);
+
+     Optional<UserEntry> us= repo.findByEmail(email);
+
+    UserEntry user =us.get();
+
+    user.getJournalentries().add(saved);
+    js.createuser(user);
+
+     
+     
+     
+
+
+     
+
+
+
 }
 
 public List<JournalEntry> getALL()
