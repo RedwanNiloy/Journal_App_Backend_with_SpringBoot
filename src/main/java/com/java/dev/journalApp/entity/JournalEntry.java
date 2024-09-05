@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Data;
 
 
-
+//nIce
 
 
 @Data //this annotation generate getter setters constructir etc in compile time
